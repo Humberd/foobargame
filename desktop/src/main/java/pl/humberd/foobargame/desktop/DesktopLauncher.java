@@ -6,6 +6,7 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.github.czyzby.autumn.fcs.scanner.DesktopClassScanner;
 import com.github.czyzby.autumn.mvc.application.AutumnApplication;
 import pl.humberd.foobargame.Core;
+import pl.humberd.foobargame.configuration.Constants;
 
 /** Launches the desktop (LWJGL) application. */
 public class DesktopLauncher {
@@ -21,8 +22,8 @@ public class DesktopLauncher {
     private static LwjglApplicationConfiguration getDefaultConfiguration() {
         LwjglApplicationConfiguration configuration = new LwjglApplicationConfiguration();
         configuration.title = "foobargame";
-        configuration.width = Core.INSTANCE.getWIDTH();
-        configuration.height = Core.INSTANCE.getHEIGHT();
+        configuration.width = Constants.WIDTH;
+        configuration.height = Constants.HEIGHT;
         for (int size : new int[] { 128, 64, 32, 16 }) {
             configuration.addIcon("libgdx" + size + ".png", FileType.Internal);
         }

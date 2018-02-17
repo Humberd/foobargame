@@ -2,13 +2,18 @@
 eclipse.project.name = appName + '-core'
 
 dependencies {
-  compile "com.badlogicgames.gdx:gdx:$gdxVersion"
-  compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-  compile "com.github.czyzby:gdx-autumn-mvc:$autumnMvcVersion"
-  compile "com.github.czyzby:gdx-lml:$lmlVersion"
-  compile "com.github.czyzby:gdx-kiwi:$kiwiVersion"
-  compile "com.github.czyzby:gdx-autumn:$autumnVersion"
-  compile "com.github.czyzby:gdx-lml-vis:$lmlVisVersion"
-  compile "com.kotcrab.vis:vis-ui:$visUiVersion"
+    compile "com.badlogicgames.gdx:gdx:$gdxVersion"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    compile "com.github.czyzby:gdx-autumn-mvc:$autumnMvcVersion"
+    compile "com.github.czyzby:gdx-lml:$lmlVersion"
+    compile "com.github.czyzby:gdx-kiwi:$kiwiVersion"
+    compile "com.github.czyzby:gdx-autumn:$autumnVersion"
+    compile "com.github.czyzby:gdx-lml-vis:$lmlVisVersion"
+    compile "com.kotcrab.vis:vis-ui:$visUiVersion"
+
+    compile group: 'io.reactivex.rxjava2', name: 'rxjava', version: rxjava2Version
+//    compile group: 'io.reactivex.rxjava2', name: 'rxandroid', version: '2.0.2'
+    compile group: 'io.reactivex.rxjava2', name: 'rxkotlin', version: rxkotlinVersion
+
 }
         
