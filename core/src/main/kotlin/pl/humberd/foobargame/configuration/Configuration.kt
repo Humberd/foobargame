@@ -3,16 +3,21 @@ package pl.humberd.foobargame.configuration
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.files.FileHandle
 import com.badlogic.gdx.utils.GdxRuntimeException
+import com.badlogic.gdx.utils.viewport.FitViewport
+import com.badlogic.gdx.utils.viewport.Viewport
 import com.github.czyzby.autumn.annotation.Component
 import com.github.czyzby.autumn.annotation.Initiate
 import com.github.czyzby.autumn.mvc.component.ui.InterfaceService
 import com.github.czyzby.autumn.mvc.component.ui.SkinService
 import com.github.czyzby.autumn.mvc.stereotype.preference.LmlParserSyntax
 import com.github.czyzby.autumn.mvc.stereotype.preference.Preference
+import com.github.czyzby.autumn.mvc.stereotype.preference.StageViewport
+import com.github.czyzby.kiwi.util.gdx.asset.lazy.provider.ObjectProvider
 import com.github.czyzby.lml.parser.LmlParser
 import com.github.czyzby.lml.parser.impl.tag.Dtd
 import com.github.czyzby.lml.vis.parser.impl.VisLmlSyntax
 import com.kotcrab.vis.ui.VisUI
+import com.sun.prism.image.ViewPort
 
 @Component
 class Configuration {
@@ -21,6 +26,11 @@ class Configuration {
 
     @LmlParserSyntax
     val syntax = VisLmlSyntax()
+
+    @StageViewport
+    val viewportProvider = object: ObjectProvider<Viewport> {
+        override fun provide() = FitViewport(Constants.WIDTH.toFloat(), Constants.HEIGHT.toFloat())
+    }
 
     @Initiate
     fun initiatefConfiguration(
