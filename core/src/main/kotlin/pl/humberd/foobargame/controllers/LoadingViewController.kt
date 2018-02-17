@@ -17,7 +17,7 @@ class LoadingViewController(
 
     override fun render(stage: Stage, delta: Float) {
         assetService.update()
-        loadingBar.setValue(assetService.loadingProgress)
+        loadingBar.value = assetService.loadingProgress
         stage.act(delta)
         stage.draw()
     }

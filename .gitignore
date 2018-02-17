@@ -62,3 +62,5 @@ nb-configuration.xml
 
 ## OS Specific
 .DS_Store
+
+desktop/*.dtd
