@@ -1,8 +1,5 @@
 <?xml version="1.0"?>
-<!DOCTYPE window SYSTEM "../../../lml.dtd">
-<!-- Going through LML tutorials is suggested before starting with Autumn MVC. If anything is unclear
-    in the .lml files, you should go through LML resources first. -->
+<!DOCTYPE window SYSTEM "lml.dtd">
 <window title="@loader/loading">
-    <!-- Thanks to "goto:menu" action, menu.lml will be shown after this bar is fully loaded. -->
-    <progressbar id="loadingBar" animateduration="0.4"/>
+    <progressbar id="loadingBar" animateduration="2" oncomplete="goto:settingsView"/>
 </window>

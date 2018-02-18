@@ -13,6 +13,7 @@ import com.github.czyzby.autumn.mvc.stereotype.preference.*
 import com.github.czyzby.kiwi.util.gdx.asset.lazy.provider.ObjectProvider
 import com.github.czyzby.lml.parser.LmlParser
 import com.github.czyzby.lml.parser.impl.tag.Dtd
+import com.github.czyzby.lml.util.Lml
 import com.github.czyzby.lml.vis.parser.impl.VisLmlSyntax
 import com.kotcrab.vis.ui.VisUI
 
@@ -20,6 +21,9 @@ import com.kotcrab.vis.ui.VisUI
 class Configuration {
     @Preference
     val preferencesPath = Constants.PREFERENCES_PATH
+
+    @LmlMacro
+    val settingsMacros = "ui/templates/settings/macros.lml"
 
     @I18nBundle
     val i18nBundlePath = "i18n/bundle"
@@ -43,6 +47,8 @@ class Configuration {
         VisUI.load(VisUI.SkinScale.X2)
 
         skinService.addSkin("default", VisUI.getSkin())
+
+        Lml.EXTRACT_UNANNOTATED_METHODS = false
 
         saveDtdSchema(interfaceService.parser, Gdx.files.local("lml.dtd"))
     }

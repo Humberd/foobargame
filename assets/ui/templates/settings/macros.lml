@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE :macro SYSTEM "lml.dtd">
+
+<:macro alias="settingselement"
+        replace=""
+        title=""
+        status=""
+        onclick="">
+    <label id="foobar"
+           align="left"
+           padright="10"
+           onclick="{onclick}">
+        {title}
+    </label>
+    <label align="right">
+        {status}
+    </label>
+    <label align="right"
+           padleft="10"
+           padright="10">
+        >
+    </label>
+</:macro>

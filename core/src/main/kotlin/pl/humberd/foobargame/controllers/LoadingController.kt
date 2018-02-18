@@ -8,7 +8,7 @@ import com.github.czyzby.lml.annotation.LmlActor
 import com.kotcrab.vis.ui.widget.VisProgressBar
 
 @View(value = "ui/templates/loading.lml", first = true)
-class LoadingViewController(
+class LoadingController(
         val assetService: AssetService
 ) : ViewRenderer {
 

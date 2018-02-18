@@ -1,7 +1,8 @@
-package pl.humberd.foobargame.configuration 
+package pl.humberd.foobargame.configuration
 
 object Constants {
-    const val WIDTH = 480
-    const val HEIGHT = 360
-    const val PREFERENCES_PATH = "dupa"
+    const val GAME_NAME = "foobargame"
+    const val WIDTH = 1080 / 2
+    const val HEIGHT = 1920 / 2
+    const val PREFERENCES_PATH = "pl.humberd.foobargame.preferences"
 }

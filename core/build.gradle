@@ -11,9 +11,19 @@ dependencies {
     compile "com.github.czyzby:gdx-lml-vis:$lmlVisVersion"
     compile "com.kotcrab.vis:vis-ui:$visUiVersion"
 
+    compile "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesCore"
+
     compile group: 'io.reactivex.rxjava2', name: 'rxjava', version: rxjava2Version
 //    compile group: 'io.reactivex.rxjava2', name: 'rxandroid', version: '2.0.2'
     compile group: 'io.reactivex.rxjava2', name: 'rxkotlin', version: rxkotlinVersion
 
+    //ktx
+    compile "io.github.libktx:ktx-actors:$ktxVersion"
+
 }
-        
+
+kotlin {
+    experimental {
+        coroutines 'enable'
+    }
+}
