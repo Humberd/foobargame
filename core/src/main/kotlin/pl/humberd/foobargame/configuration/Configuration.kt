@@ -9,26 +9,30 @@ import com.github.czyzby.autumn.annotation.Component
 import com.github.czyzby.autumn.annotation.Initiate
 import com.github.czyzby.autumn.mvc.component.ui.InterfaceService
 import com.github.czyzby.autumn.mvc.component.ui.SkinService
-import com.github.czyzby.autumn.mvc.stereotype.preference.LmlParserSyntax
-import com.github.czyzby.autumn.mvc.stereotype.preference.Preference
-import com.github.czyzby.autumn.mvc.stereotype.preference.StageViewport
+import com.github.czyzby.autumn.mvc.stereotype.preference.*
 import com.github.czyzby.kiwi.util.gdx.asset.lazy.provider.ObjectProvider
 import com.github.czyzby.lml.parser.LmlParser
 import com.github.czyzby.lml.parser.impl.tag.Dtd
 import com.github.czyzby.lml.vis.parser.impl.VisLmlSyntax
 import com.kotcrab.vis.ui.VisUI
-import com.sun.prism.image.ViewPort
 
 @Component
 class Configuration {
     @Preference
-    val preferencesPath = Constants.PREFERENCES_FILE_NAME
+    val preferencesPath = Constants.PREFERENCES_PATH
+
+    @I18nBundle
+    val i18nBundlePath = "i18n/bundle"
+    @I18nLocale(propertiesPath = Constants.PREFERENCES_PATH, defaultLocale = "en") // TODO change to dynamically detect
+    val selectedLocaleSettingsFieldName = "locale"
+    @AvailableLocales(localeChangeMethodPrefix = "setLocale")
+    val availableLocales = arrayOf("en", "pl")
 
     @LmlParserSyntax
     val syntax = VisLmlSyntax()
 
     @StageViewport
-    val viewportProvider = object: ObjectProvider<Viewport> {
+    val viewportProvider = object : ObjectProvider<Viewport> {
         override fun provide() = FitViewport(Constants.WIDTH.toFloat(), Constants.HEIGHT.toFloat())
     }
 
