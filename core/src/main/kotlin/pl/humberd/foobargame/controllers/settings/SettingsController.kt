@@ -1,10 +1,7 @@
 package pl.humberd.foobargame.controllers.settings
 
-import com.badlogic.gdx.assets.loaders.I18NBundleLoader
+import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.scenes.scene2d.Stage
-import com.badlogic.gdx.utils.I18NBundle
-import com.github.czyzby.autumn.annotation.Initiate
-import com.github.czyzby.autumn.context.Context
 import com.github.czyzby.autumn.mvc.component.i18n.LocaleService
 import com.github.czyzby.autumn.mvc.component.ui.controller.ViewRenderer
 import com.github.czyzby.autumn.mvc.stereotype.View
@@ -30,12 +27,13 @@ class SettingsController(
         facebookService.status
                 .subscribe {
                     facebookStatusLabel.setText(localeService.i18nBundle[it.i18nKey])
+                    // TODO: background color https://stackoverflow.com/a/38881685/4256929
+                    when (facebookService.status.value) {
+                        is FacebookStatus.Loading -> facebookStatusLabel.color = Color.WHITE
+                        is FacebookStatus.Disconnected -> facebookStatusLabel.color = Color.RED
+                        is FacebookStatus.Connected -> facebookStatusLabel.color = Color.GREEN
+                    }
                 }
-    }
-
-    @Initiate
-    fun foo(context: Context) {
-        println("hello")
     }
 
     @LmlAction("facebookStatusToggle")

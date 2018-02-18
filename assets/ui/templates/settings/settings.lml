@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE dialog SYSTEM "lml.dtd">
 <dialog title="@settings/settings"
-        closebutton="true">
+        closebutton="true"
+        debugrecursively="false">
 
-    <table grow="true"
-           fill="true">
+    <table width="500">
         <label align="left"
+               growx="true"
                padright="10">
             Facebook
         </label>
         <label id="facebookStatusLabel"
                align="right"
-               onclick="facebookStatusToggle">
-        </label>
+               onclick="facebookStatusToggle"/>
         <label align="right"
                padleft="10"
                padright="10">
@@ -20,6 +20,7 @@
         </label>
         <:row/>
         <label align="left"
+               growx="true"
                padright="10">
             Google Play
         </label>
