@@ -10,6 +10,10 @@ import com.github.czyzby.autumn.annotation.Initiate
 import com.github.czyzby.autumn.mvc.component.ui.InterfaceService
 import com.github.czyzby.autumn.mvc.component.ui.SkinService
 import com.github.czyzby.autumn.mvc.stereotype.preference.*
+import com.github.czyzby.autumn.mvc.stereotype.preference.sfx.MusicEnabled
+import com.github.czyzby.autumn.mvc.stereotype.preference.sfx.MusicVolume
+import com.github.czyzby.autumn.mvc.stereotype.preference.sfx.SoundEnabled
+import com.github.czyzby.autumn.mvc.stereotype.preference.sfx.SoundVolume
 import com.github.czyzby.kiwi.util.gdx.asset.lazy.provider.ObjectProvider
 import com.github.czyzby.lml.parser.LmlParser
 import com.github.czyzby.lml.parser.impl.tag.Dtd
@@ -32,6 +36,15 @@ class Configuration {
     @AvailableLocales(localeChangeMethodPrefix = "setLocale")
     val availableLocales = arrayOf("en", "pl")
 
+    @MusicVolume(preferences = Constants.PREFERENCES_PATH)
+    val musicVolumeSettingsFieldName = "musicVolume"
+    @MusicEnabled(preferences = Constants.PREFERENCES_PATH)
+    val musicEnabledSettingsFieldName = "musicEnabled"
+    @SoundVolume(preferences = Constants.PREFERENCES_PATH)
+    val soundVolumeSettingsFieldName = "soundVolue"
+    @SoundEnabled(preferences = Constants.PREFERENCES_PATH)
+    val soundEnabledSettingsFieldName = "soundEnabled"
+
     @LmlParserSyntax
     val syntax = VisLmlSyntax()
 
@@ -50,7 +63,7 @@ class Configuration {
 
         Lml.EXTRACT_UNANNOTATED_METHODS = false
 
-        saveDtdSchema(interfaceService.parser, Gdx.files.local("lml.dtd"))
+//        saveDtdSchema(interfaceService.parser, Gdx.files.local("lml.dtd"))
     }
 
     fun saveDtdSchema(lmlParser: LmlParser, fileHandle: FileHandle) {

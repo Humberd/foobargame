@@ -1,36 +1,64 @@
 <?xml version="1.0"?>
-<!DOCTYPE dialog SYSTEM "lml.dtd">
-<dialog title="@settings/settings"
-        closebutton="true"
-        debugrecursively="false">
+<!DOCTYPE :noop SYSTEM "lml.dtd">
 
-    <table width="500">
-        <label align="left"
-               growx="true"
-               padright="10">
-            Facebook
-        </label>
-        <label id="facebookStatusLabel"
-               align="right"
-               onclick="facebookStatusToggle"/>
-        <label align="right"
-               padleft="10"
-               padright="10">
-            >
-        </label>
-        <:row/>
-        <label align="left"
-               growx="true"
-               padright="10">
-            Google Play
-        </label>
-        <label align="right">
-            Disconnected
-        </label>
-        <label align="right"
-               padleft="10"
-               padright="10">
-            >
-        </label>
-    </table>
-</dialog>
+<:noop>
+    <:macro alias="settingsitem"
+            replace=""
+            label=""
+            statusLabelId=""
+            onclick="">
+        <table growx="true"
+               maxwidth="500"
+               onclick="{onclick}">
+            <label align="left"
+                   growx="true">
+                {label}
+            </label>
+            <label id="{statusLabelId}"
+                   padleft="10"/>
+            <label align="right"
+                   padleft="10"
+                   padright="10">
+                >
+            </label>
+        </table>
+    </:macro>
+    <dialog title="@settings/settings"
+            closebutton="true"
+            debugrecursively="false">
+        <table width="500">
+            <:settingsitem
+                    label="@settings/facebook"
+                    statusLabelId="facebookStatusLabel"
+                    onclick="facebookStatusToggle"/>
+            <:row/>
+            <:settingsitem
+                    label="@settings/googlePlay"
+                    statusLabelId="googlePlayStatusLabel"
+                    onclick="googlePlayStatusToggle"/>
+            <:row/>
+            <separator growx="true"
+                       padtop="10"
+                       padbottom="10"/>
+            <:row/>
+            <:settingsitem
+                    label="@settings/music"
+                    statusLabelId="musicStatusLabel"
+                    onclick="googlePlayStatusToggle"/>
+            <:row/>
+            <:settingsitem
+                    label="@settings/sound"
+                    statusLabelId="soundStatusLabel"
+                    onclick="googlePlayStatusToggle"/>
+            <:row/>
+            <separator growx="true"
+                       padtop="10"
+                       padbottom="10"/>
+            <:row/>
+            <:settingsitem
+                    label="Language"
+                    statusLabelId="languageStatusLabel"
+                    onclick="googlePlayStatusToggle"/>
+        </table>
+    </dialog>
+</:noop>

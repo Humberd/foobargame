@@ -34,7 +34,7 @@ sealed class FacebookStatus(val textStatus: String) {
     val i18nKey: String
 
     init {
-        i18nKey = "facebookStatus/${textStatus.toLowerCase()}"
+        i18nKey = "settings/facebook/status/${textStatus.toLowerCase()}"
     }
 
     object Loading : FacebookStatus("Loading")
