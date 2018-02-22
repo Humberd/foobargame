@@ -56,7 +56,7 @@
                        padbottom="10"/>
             <:row/>
             <:settingsitem
-                    label="Language"
+                    label="@settings/language"
                     statusLabelId="languageStatusLabel"
                     onclick="googlePlayStatusToggle"/>
         </table>

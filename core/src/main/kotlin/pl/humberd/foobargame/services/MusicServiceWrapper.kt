@@ -1,6 +1,5 @@
 package pl.humberd.foobargame.services
 
-import com.badlogic.gdx.audio.Sound
 import com.github.czyzby.autumn.annotation.Component
 import com.github.czyzby.autumn.annotation.Initiate
 import com.github.czyzby.autumn.mvc.component.sfx.MusicService

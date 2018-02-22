@@ -7,7 +7,7 @@ import kotlinx.coroutines.experimental.delay
 
 @Component
 class GooglePlayService {
-    val status = BehaviorSubject.createDefault<GooglePlayStatus>(GooglePlayStatus.Disconnected)
+    val status = BehaviorSubject.create<GooglePlayStatus>()
 
     init {
         disconnect()

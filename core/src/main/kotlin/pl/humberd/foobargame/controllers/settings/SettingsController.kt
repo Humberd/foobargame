@@ -3,10 +3,12 @@ package pl.humberd.foobargame.controllers.settings
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.scenes.scene2d.Stage
 import com.github.czyzby.autumn.annotation.Destroy
+import com.github.czyzby.autumn.annotation.Dispose
 import com.github.czyzby.autumn.mvc.component.i18n.LocaleService
 import com.github.czyzby.autumn.mvc.component.sfx.MusicService
 import com.github.czyzby.autumn.mvc.component.ui.controller.ViewRenderer
 import com.github.czyzby.autumn.mvc.stereotype.View
+import com.github.czyzby.autumn.mvc.stereotype.ViewDialog
 import com.github.czyzby.lml.annotation.LmlAction
 import com.github.czyzby.lml.annotation.LmlActor
 import com.github.czyzby.lml.annotation.LmlAfter
@@ -15,13 +17,14 @@ import com.kotcrab.vis.ui.widget.VisLabel
 import pl.humberd.foobargame.extensions.toPercentString
 import pl.humberd.foobargame.services.*
 
-@View(id = "settingsView", value = "ui/templates/settings/settings.lml")
+@ViewDialog(id = "settingsView", value = "ui/templates/settings/settings.lml")
 class SettingsController(
         val facebookService: FacebookService,
         val localeService: LocaleService,
         val googlePlayService: GooglePlayService,
-        val musicServiceWrapper: MusicServiceWrapper
-) : ActionContainer, ViewRenderer {
+        val musicServiceWrapper: MusicServiceWrapper,
+        val localeServiceWrapper: LocaleServiceWrapper
+) : ActionContainer {
 
     //------------- facebook handler
 
@@ -112,9 +115,16 @@ class SettingsController(
                     }
                 }
     }
+    //---------------- language
 
-    override fun render(stage: Stage, delta: Float) {
-        stage.act(delta)
-        stage.draw()
+    @LmlActor("languageStatusLabel")
+    lateinit var languageStatusLabel: VisLabel
+
+    @LmlAfter
+    fun languageInit() {
+        localeServiceWrapper.currentLocale
+                .subscribe {
+                    languageStatusLabel.setText(localeService.i18nBundle["languages/$it"])
+                }
     }
 }
