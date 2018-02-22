@@ -58,7 +58,7 @@
             <:settingsitem
                     label="@settings/language"
                     statusLabelId="languageStatusLabel"
-                    onclick="googlePlayStatusToggle"/>
+                    onclick="show:localeSelector"/>
         </table>
     </dialog>
 </:noop>

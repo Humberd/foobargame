@@ -17,7 +17,7 @@ import com.kotcrab.vis.ui.widget.VisLabel
 import pl.humberd.foobargame.extensions.toPercentString
 import pl.humberd.foobargame.services.*
 
-@ViewDialog(id = "settingsView", value = "ui/templates/settings/settings.lml")
+@View(id = "settingsView", value = "ui/templates/settings/settings.lml")
 class SettingsController(
         val facebookService: FacebookService,
         val localeService: LocaleService,

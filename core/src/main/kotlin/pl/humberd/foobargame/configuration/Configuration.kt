@@ -26,8 +26,8 @@ class Configuration {
     @Preference
     val preferencesPath = Constants.PREFERENCES_PATH
 
-    @LmlMacro
-    val settingsMacros = "ui/templates/settings/macros.lml"
+//    @LmlMacro
+//    val settingsMacros = "ui/templates/settings/macros.lml"
 
     @I18nBundle
     val i18nBundlePath = "i18n/bundle"

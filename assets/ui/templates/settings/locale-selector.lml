@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE :noop SYSTEM "lml.dtd">
+
+<:noop>
+    <dialog title="Select language"
+            closebutton="true"
+            debugrecursively="false">
+        <table width="500">
+            <:each value="{locales}">
+                <table growx="true"
+                       maxwidth="500"
+                       onclick="selectLocale"
+                       id="{value}"
+                       row="true">
+                    <label align="left"
+                           growx="true"
+                           color="{? $getCurrentLocale == {value} ? 'red' : 'white'}">
+                        @languages/{value}
+                    </label>
+                </table>
+            </:each>
+        </table>
+    </dialog>
+</:noop>
